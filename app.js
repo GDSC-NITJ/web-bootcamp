@@ -5,19 +5,19 @@ function addItem() {
         alert("Please add some text!");
         return;
     }
-    const existingTodos = JSON.parse(localStorage.getItem("todos"));
+    let existingTodos = JSON.parse(localStorage.getItem("todos"));
     const contentObj = {
         content: content.value,
         _id: (Math.floor(100000 + Math.random() * 900000)).toString(),
     }
-    let todos;
     if (existingTodos !== null) {
-        todos = [...existingTodos, contentObj];
+        existingTodos.push(contentObj);
     } else {
-        todos = [contentObj];
+        existingTodos = [];
+        existingTodos.push(contentObj);
     }
 
-    localStorage.setItem("todos", JSON.stringify(todos));
+    localStorage.setItem("todos", JSON.stringify(existingTodos));
     updateTodoList(localStorage.getItem("todos"));
     content.value = "";
 }
@@ -27,20 +27,25 @@ function updateTodoList(todos) {
 
     const parsedTodos = JSON.parse(todos);
 
-    myList.innerHTML = ""
+    myList.innerHTML = "";
 
-    parsedTodos.map((todo) => {
+    for (let i = 0; i < parsedTodos.length; i++) {
         myList.innerHTML += `
-        <li>${todo.content} <i class="fas fa-trash-alt" onclick="deleteTodo(${todo._id})"></i></li>
+        <li>${parsedTodos[i].content} <i class="fas fa-trash-alt" onclick="deleteTodo(${parsedTodos[i]._id})"></i></li>
        `
-    })
+    }
 }
 
 function deleteTodo(id) {
     const todoId = id.toString();
-    const changedTodos = JSON.parse(localStorage.getItem("todos")).filter((todo) => {
-        return todo._id !== todoId;
-    })
+    const parsedTodos = JSON.parse(localStorage.getItem("todos"));
+    let changedTodos = [];
+
+    for (let i = 0; i < parsedTodos.length; i++) {
+        if (parsedTodos[i]._id !== todoId) {
+            changedTodos.push(parsedTodos[i]);
+        }
+    }
 
     localStorage.setItem("todos", JSON.stringify(changedTodos));
     updateTodoList(localStorage.getItem("todos"));
