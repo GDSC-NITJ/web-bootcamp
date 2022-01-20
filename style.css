@@ -5,7 +5,6 @@
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	scroll-behavior: smooth;
 }
 
 body {
@@ -18,36 +17,33 @@ body {
 }
 
 .header {
-	width: 480px;
-	padding: 25px 30px;
-	position: relative;
+	/* height:400px; */
+	width:350px;
+	padding:25px 30px;
 	border-radius: 20px;
 	background: white;
+	font-size: 1.8rem;
 	box-shadow: 0px 6px 15px rgba(12, 10, 10, 0.15);
 }
-
-.header h2 {
-	font-size: 2rem;
+ h2 {
+	text-align: center;
 	font-weight: 400;
 	font-family: "Poppins";
-	display: flex;
 	justify-content: center;
 	color: #ad2871;
 	margin-bottom: 10px;
 }
 
 .addBtn {
-	font-size: 1rem;
-	margin: 0 0.5em;
-	border-radius: 2em;
-	padding: 0.75em 1.5em;
+	height: 40px;
+	font-size: 0.5em;
+	color: #ad2871;
+	border: 1px solid;
+	border-radius: 20px;
+	margin: 0px 5px ;
+	padding: 5px 20px;
 	cursor: pointer;
 	background: none;
-	border: 1px solid;
-	line-height: 1;
-	font-family: "Roboto";
-	color: #ad2871;
-	height: 40px;
 }
 
 .addBtn:hover {
@@ -57,15 +53,13 @@ body {
 
 #itemTitle {
 	width: 70%;
-	margin: 0 0.3em;
-	border-radius: 2em;
-	padding: 0.75em 1.5em;
+	border-radius: 20px;
+	padding: 5px 20px;
 	background: none;
 	border: 1px solid;
 	color: #ad2871;
-	font-size: 1rem;
+	font-size: 0.5em;
 	height: 40px;
-	outline: none;
 }
 
 #itemTitle:focus {
@@ -77,20 +71,20 @@ ul {
 }
 
 ul > li {
+	color: #00b68eb9;
+	list-style: none;
 	margin: 0.2em 1em;
 	padding: 10px;
-	list-style: none;
 	border-radius: 10px;
-	color: #00b68eb9;
 	font-weight: 500;
-	font-size: 18px;
+	font-size: 0.5em;
 	display: flex;
 	justify-content: space-between;
 }
 
 li:hover {
 	background-color: #6df1d5b9;
-	color: rgb(27, 27, 27);
+	color: rgb(44, 41, 41);
 }
 
 .fas {
@@ -99,21 +93,33 @@ li:hover {
 
 @media (max-width: 700px) {
 	.header {
-		width: 380px;
+		width: 300px;
 		padding: 15px 20px;
-	}
-	.header h2 {
 		font-size: 1.5rem;
 	}
 	.addBtn {
-		padding: 0.5rem 1.5em;
-		margin: 0 0.25rem;
-		font-size: 0.8rem;
+		height:35px;
+		padding: 2px 20px;
+		margin: 0px 5px;
+		font-size: 0.7em;
 	}
 	#itemTitle {
 		width: 60%;
-		padding: 0.5rem 0.5rem;
-		margin: 0 0.25rem;
-		font-size: 0.8rem;
+		height:35px;
+		padding: 2px 20px;
+		/* margin: 0 15px; */
+		font-size: 0.7em;
 	}
+	ul >li{
+		font-size: 0.7em;
+	}
+}
+img {
+    border: 3px outset #191d3a;
+    border-radius: 20px;
+    float: right;
+    margin: -107px 0px 38px 0px;
+    padding: 0px;
+    height: 183px;
+    margin-bottom: 6%;
 }
